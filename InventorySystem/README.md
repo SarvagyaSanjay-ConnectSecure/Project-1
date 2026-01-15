@@ -254,7 +254,7 @@ TEST 2: OVERSELLING PREVENTION (1000 buyers, 100 tickets)
 TEST 3: MULTIPLE PROCESSES
 ============================================================
  Exactly 100 purchases succeeded across all processes
-🎉 TEST 3 PASSED!
+ TEST 3 PASSED!
 
 ============================================================
  ALL TESTS PASSED!
