@@ -468,17 +468,11 @@ Each project includes detailed documentation:
 
 ## 👤 Author
 
-**[Your Name]**  
-Technical Assessment Solutions  
+**Sarvagya Sanjay**  
 Backend Engineering - Python/FastAPI
 
 ---
 
-## 📄 License
-
-These solutions are submitted as part of a technical assessment and are for educational purposes.
-
----
 
 ## 🤝 Acknowledgments
 
