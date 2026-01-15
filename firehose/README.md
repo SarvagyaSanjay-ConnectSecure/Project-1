@@ -1,4 +1,6 @@
 # Firehose Collector - Event Ingestion Service
+<img width="1020" height="815" alt="image" src="https://github.com/user-attachments/assets/101c9d9d-f068-4c54-9dac-9602f2487274" />
+
 
 High-performance event ingestion service capable of handling 5,000+ requests per second.
 
