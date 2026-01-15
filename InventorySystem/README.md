@@ -412,4 +412,4 @@ cursor.execute("SELECT ... FOR UPDATE")
 ## Author
 
 Sarvagya Sanjay 
-Technical Assessment - High-Concurrency Inventory System
+:High-Concurrency Inventory System
