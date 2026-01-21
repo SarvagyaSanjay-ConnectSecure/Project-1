@@ -42,7 +42,7 @@ python app.py
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 technical-assessment/
@@ -65,7 +65,7 @@ technical-assessment/
 
 ---
 
-## 🎯 Assignment 1: Legacy Ledger Audit
+##  Assignment 1: Legacy Ledger Audit
 
 ### Problem
 Fix a legacy banking application with critical security and performance issues.
@@ -74,31 +74,31 @@ Fix a legacy banking application with critical security and performance issues.
 
 **1. SQL Injection Vulnerability (CRITICAL)**
 ```python
-# ❌ VULNERABLE
+#  VULNERABLE
 sql = f"SELECT * FROM users WHERE username LIKE '%{query}%'"
 
-# ✅ FIXED
+#  FIXED
 sql = "SELECT * FROM users WHERE username LIKE ?"
 cursor.execute(sql, (f"%{query}%",))
 ```
 
 **2. Server Blocking (Performance)**
 ```python
-# ❌ BLOCKS SERVER
+#  BLOCKS SERVER
 time.sleep(5)  # Freezes entire server
 
-# ✅ FIXED
+#  FIXED
 background_tasks.add_task(process_transaction_background, ...)
 return {"status": "accepted"}  # Returns immediately
 ```
 
 **3. Data Integrity (Non-Atomic)**
 ```python
-# ❌ NOT ATOMIC
+#  NOT ATOMIC
 cursor.execute("UPDATE users SET balance = balance + ?", ...)
 cursor.execute("INSERT INTO transactions ...", ...)
 
-# ✅ FIXED
+#  FIXED
 try:
     cursor.execute("BEGIN IMMEDIATE")
     cursor.execute("UPDATE users ...")
@@ -109,10 +109,10 @@ except:
 ```
 
 ### Key Achievements
-- ✅ SQL injection eliminated via parameterized queries
-- ✅ API response time: 50ms → 1ms (50x faster)
-- ✅ Handles 5,000+ concurrent requests
-- ✅ Atomic transactions prevent data loss
+-  SQL injection eliminated via parameterized queries
+-  API response time: 50ms → 1ms (50x faster)
+-  Handles 5,000+ concurrent requests
+-  Atomic transactions prevent data loss
 
 ### Testing
 ```bash
@@ -129,7 +129,7 @@ curl -X POST http://localhost:5000/transaction \
 
 ---
 
-## 🔥 Assignment 2: Firehose Collector
+##  Assignment 2: Firehose Collector
 
 ### Problem
 Build a high-throughput event ingestion service handling 5,000+ requests/second without dropping data.
@@ -198,7 +198,7 @@ cursor.execute(
 
 ---
 
-## 🎫 Assignment 3: High-Concurrency Inventory System
+##  Assignment 3: High-Concurrency Inventory System
 
 ### Problem
 Prevent overselling during flash sales when 1,000+ users buy simultaneously (race condition).
@@ -210,7 +210,7 @@ Prevent overselling during flash sales when 1,000+ users buy simultaneously (rac
 Thread 1: Read stock (100) → Check (100>0) → Buy → Write (99)
 Thread 2: Read stock (100) → Check (100>0) → Buy → Write (99)
                     ↑ Both read 100 at the same time!
-Result: Sold 2 tickets, only decremented once! 💥
+Result: Sold 2 tickets, only decremented once! 
 ```
 
 **With Database Locking (CORRECT):**
@@ -245,10 +245,10 @@ else:
 ### Why Database Locks (Not Python Locks)?
 
 ```python
-# ❌ Python Lock - Only works in single process
+#  Python Lock - Only works in single process
 lock = threading.Lock()  # Each Gunicorn worker has its own lock!
 
-# ✅ Database Lock - Works across ALL processes & servers
+#  Database Lock - Works across ALL processes & servers
 SELECT ... FOR UPDATE  # Database has ONE lock shared by all
 ```
 
@@ -256,15 +256,15 @@ SELECT ... FOR UPDATE  # Database has ONE lock shared by all
 
 | Test | Buyers | Stock | Result |
 |------|--------|-------|--------|
-| Basic Concurrency | 100 | 100 | ✅ All 100 succeed |
-| Overselling Test | 1,000 | 100 | ✅ Exactly 100 succeed, 900 "SOLD OUT" |
-| Multi-Process | 4 processes, 250 each | 100 | ✅ Exactly 100 total succeed |
+| Basic Concurrency | 100 | 100 |  All 100 succeed |
+| Overselling Test | 1,000 | 100 |  Exactly 100 succeed, 900 "SOLD OUT" |
+| Multi-Process | 4 processes, 250 each | 100 |  Exactly 100 total succeed |
 
 **Final Verification:**
-- ✅ Zero overselling (inventory never negative)
-- ✅ Zero underselling (no deadlocks)
-- ✅ Exactly 100 purchases in database
-- ✅ Final stock = 0
+-  Zero overselling (inventory never negative)
+-  Zero underselling (no deadlocks)
+-  Exactly 100 purchases in database
+-  Final stock = 0
 
 ### Testing
 ```bash
@@ -275,13 +275,13 @@ python app.py
 python proof_of_correctness.py
 
 # Expected output:
-# 🎉 ALL TESTS PASSED!
-# ✅ The inventory system is CORRECT
+#  ALL TESTS PASSED!
+#  The inventory system is CORRECT
 ```
 
 ---
 
-## 🔑 Key Learnings
+##  Key Learnings
 
 ### Security
 - **Always use parameterized queries** - Never use f-strings with user input in SQL
@@ -302,7 +302,7 @@ python proof_of_correctness.py
 
 ---
 
-## 📊 Performance Comparison
+##  Performance Comparison
 
 | Metric | Q1: Legacy Ledger | Q2: Firehose | Q3: Inventory |
 |--------|-------------------|--------------|---------------|
@@ -335,7 +335,7 @@ python proof_of_correctness.py
 
 ---
 
-## 🚀 Production Recommendations
+## Production Recommendations
 
 ### Q1: Legacy Ledger
 1. Replace SQLite with PostgreSQL
@@ -360,7 +360,7 @@ python proof_of_correctness.py
 
 ---
 
-## 📈 Scalability
+##  Scalability
 
 ### Horizontal Scaling
 
@@ -409,7 +409,7 @@ locust -f load_test.py --users 1000 --spawn-rate 100
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 Each project includes detailed documentation:
 - **NOTES.md** (Q1) - Security vulnerabilities and fixes
@@ -418,7 +418,7 @@ Each project includes detailed documentation:
 
 ---
 
-## ✅ Verification Checklist
+##  Verification Checklist
 
 ### Q1: Legacy Ledger
 - [ ] SQL injection blocked (test with `' OR '1'='1`)
@@ -466,15 +466,15 @@ Each project includes detailed documentation:
 
 ---
 
-## 👤 Author
+##  Author
 
 **Sarvagya Sanjay**  
-Backend Engineering - Python/FastAPI
+Backend - Python/FastAPI
 
 ---
 
 
-## 🤝 Acknowledgments
+##  Acknowledgments
 
 Solutions implement industry best practices for:
 - OWASP security guidelines (SQL injection prevention)
