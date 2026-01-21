@@ -8,9 +8,9 @@ This repository contains solutions for three Python backend engineering challeng
 
 | Assignment | Focus | Key Technologies | Status |
 |------------|-------|-----------------|--------|
-| **Q1: Legacy Ledger Audit** | Security & Performance | FastAPI, async/await, SQLite | ✅ Complete |
-| **Q2: Firehose Collector** | High-Throughput Ingestion | FastAPI, batching, async | ✅ Complete |
-| **Q3: Inventory System** | Concurrency & Race Conditions | Database locking, transactions | ✅ Complete |
+| **Q1: Legacy Ledger Audit** | Security & Performance | FastAPI, async/await, SQLite |  Complete |
+| **Q2: Firehose Collector** | High-Throughput Ingestion | FastAPI, batching, async |  Complete |
+| **Q3: Inventory System** | Concurrency & Race Conditions | Database locking, transactions |  Complete |
 
 ---
 
